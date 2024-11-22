@@ -1,13 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://jqvufylajied"]
+[gd_scene load_steps=8 format=3 uid="uid://jqvufylajied"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_3f3x6"]
 [ext_resource type="ArrayMesh" uid="uid://gjuyfsvj5gs0" path="res://Assets/Models/characterVampire.obj" id="1_pv2g0"]
+[ext_resource type="AudioStream" uid="uid://cesq424vl0eem" path="res://Sound/SFX/Death.ogg" id="3_wwhho"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q3auj"]
 radius = 0.3
 height = 1.2
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Animation" id="Animation_7snvd"]
+resource_name = "Death"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("DeathSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_48sbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odadc"]
+_data = {
+"Death": SubResource("Animation_7snvd"),
+"RESET": SubResource("Animation_48sbo")
+}
+
+[node name="Player" type="CharacterBody3D" groups=["Players"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_3f3x6")
 
@@ -20,7 +73,14 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600632, 0)
 shape = SubResource("CapsuleShape3D_q3auj")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.666667, 0, 0, 0, 0.627226, 0.225902, 0, -0.225902, 0.627226, 0, 1.88287, 3.61406)
-current = true
-fov = 60.0
+[node name="CameraFollow" type="RemoteTransform3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.960513, 0.278237, 0, -0.278237, 0.960513, 0, 1.26213, 2.06253)
+remote_path = NodePath("../../Camera")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_odadc")
+}
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wwhho")

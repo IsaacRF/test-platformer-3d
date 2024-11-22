@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bssf3miyaxa02"]
+
+[ext_resource type="Script" path="res://Hazards/DeathArea.gd" id="1_usvkn"]
+
+[node name="DeathArea" type="Area3D"]
+script = ExtResource("1_usvkn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

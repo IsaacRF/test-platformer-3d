@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfvna3ixit663"]
+[gd_scene load_steps=5 format=3 uid="uid://dfvna3ixit663"]
 
 [ext_resource type="PackedScene" uid="uid://d2do5kemgc8ee" path="res://Platforms/PlatformLarge.tscn" id="1_2i5le"]
 [ext_resource type="PackedScene" uid="uid://jqvufylajied" path="res://Player/Player.tscn" id="2_p81fo"]
+[ext_resource type="PackedScene" uid="uid://bssf3miyaxa02" path="res://Hazards/DeathArea.tscn" id="3_ni36n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayh7b"]
+size = Vector3(25, 4, 29)
 
 [node name="Main" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.93027, 0.366875, 0, -0.366875, 0.93027, 0, 2.56917, 4.8977)
 
 [node name="PlatformLarge" parent="." instance=ExtResource("1_2i5le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -13,3 +20,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.444334, 0.739847, 0.505167, -0.196032, -0.630521, 0.751009, 0.87415, 0.23467, 0.425195, 0.0528512, 5.63754, 0)
 shadow_enabled = true
+
+[node name="DeathArea" parent="." instance=ExtResource("3_ni36n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02034, 0, 0.151889)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.00685, 0)
+shape = SubResource("BoxShape3D_ayh7b")
