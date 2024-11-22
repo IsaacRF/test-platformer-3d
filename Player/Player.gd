@@ -13,7 +13,7 @@ var facing_angle : float
 @onready var death_sfx = $DeathSFX
 @onready var animation_player = $AnimationPlayer
 @onready var camera_follow = $CameraFollow
-@onready var camera = $Camera
+@onready var collision_shape_3d = $CollisionShape3D
 
 func _physics_process(delta):	
 	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -39,6 +39,7 @@ func _physics_process(delta):
 		model.rotation.y = lerp_angle(model.rotation.y, facing_angle, rotation_speed)
 		
 func game_over():
+	collision_shape_3d.set_deferred("disabled", true)
 	animation_player.play("Death")
 	death_sfx.play()
 	camera_follow.update_position = false

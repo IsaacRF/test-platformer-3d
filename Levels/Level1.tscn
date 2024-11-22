@@ -10,10 +10,43 @@ size = Vector3(25, 4, 29)
 [node name="Main" type="Node3D"]
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.93027, 0.366875, 0, -0.366875, 0.93027, 0, 2.56917, 4.8977)
+transform = Transform3D(1.5, 0, 0, 0, 1.44077, 0.417355, 0, -0.417355, 1.44077, 0, 1.8932, 3.0938)
 
 [node name="PlatformLarge" parent="." instance=ExtResource("1_2i5le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="PlatformLarge2" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99602, -1, 0)
+
+[node name="PlatformLarge3" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, -4)
+
+[node name="PlatformLarge4" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4)
+
+[node name="PlatformLarge5" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -4)
+
+[node name="PlatformLarge6" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99216, -1, 0)
+
+[node name="PlatformLarge7" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 2)
+
+[node name="PlatformLarge12" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
+
+[node name="PlatformLarge8" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 2)
+
+[node name="PlatformLarge9" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 0.842387, -0.538874, 0, 0.538874, 0.842387, -4, -1.37691, -2.69697)
+
+[node name="PlatformLarge10" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="PlatformLarge11" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_p81fo")]
 
