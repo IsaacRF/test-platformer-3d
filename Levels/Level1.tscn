@@ -1,17 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfvna3ixit663"]
+[gd_scene load_steps=7 format=3 uid="uid://dfvna3ixit663"]
 
 [ext_resource type="PackedScene" uid="uid://d2do5kemgc8ee" path="res://Platforms/PlatformLarge.tscn" id="1_2i5le"]
 [ext_resource type="PackedScene" uid="uid://jqvufylajied" path="res://Player/Player.tscn" id="2_p81fo"]
 [ext_resource type="PackedScene" uid="uid://bssf3miyaxa02" path="res://Hazards/DeathArea.tscn" id="3_ni36n"]
 [ext_resource type="PackedScene" uid="uid://cswrxwyowmy54" path="res://Hazards/Spikes.tscn" id="4_e8nsp"]
+[ext_resource type="PackedScene" uid="uid://cl6butnbnrvwm" path="res://Enemies/SpikeBall.tscn" id="5_0bmue"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ayh7b"]
-size = Vector3(25, 4, 29)
+size = Vector3(43, 4, 41)
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.44077, 0.417355, 0, -0.417355, 1.44077, 0, 1.8932, 3.0938)
+transform = Transform3D(1.5, 0, 0, 0, 1.35754, 0.638029, 0, -0.638029, 1.35754, 0, 2.24469, 3.18273)
 
 [node name="PlatformLarge" parent="." instance=ExtResource("1_2i5le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -59,7 +60,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02034, 0, 0.151889)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Void"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.00685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5.00685, -3)
 shape = SubResource("BoxShape3D_ayh7b")
 
 [node name="Spikes" parent="." instance=ExtResource("4_e8nsp")]
@@ -70,3 +71,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60646, 0.005005, -3.89861)
 
 [node name="Spikes3" parent="." instance=ExtResource("4_e8nsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60646, 0.005005, -3.2737)
+
+[node name="SpikeBall" parent="." instance=ExtResource("5_0bmue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64081, 1.18849, -1.55535)
+
+[node name="SpikeBall2" parent="." instance=ExtResource("5_0bmue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46895, 2.18863, -1.5645)

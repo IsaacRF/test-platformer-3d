@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl6butnbnrvwm"]
+
+[ext_resource type="ArrayMesh" uid="uid://mvd3ie23bw83" path="res://Assets/Models/spikeBlock.obj" id="1_x0o1y"]
+[ext_resource type="PackedScene" uid="uid://cag7crmps45ko" path="res://Hazards/Hurtbox.tscn" id="2_ys78t"]
+[ext_resource type="PackedScene" uid="uid://c6obom820cu6s" path="res://Behavior/PatrollLinealComponent.tscn" id="3_rirsx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckguk"]
+size = Vector3(0.578613, 0.572327, 0.585693)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acjra"]
+size = Vector3(0.504028, 0.499573, 0.506104)
+
+[node name="SpikeBall" type="CharacterBody3D"]
+
+[node name="SpikeBlock" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_x0o1y")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_ys78t")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 0.507478, 0.0032959)
+shape = SubResource("BoxShape3D_ckguk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003479, 0.500569, -0.00231934)
+shape = SubResource("BoxShape3D_acjra")
+
+[node name="PatrollLinealComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_rirsx")]
+target = NodePath("..")
+move_speed = 4.0

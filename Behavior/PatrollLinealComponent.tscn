@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6obom820cu6s"]
+
+[ext_resource type="Script" path="res://Behavior/PatrollLinealComponent.gd" id="1_knr3g"]
+
+[node name="PatrollLinealComponent" type="Node"]
+script = ExtResource("1_knr3g")
+move_dir = Vector3(0, 0, 3)

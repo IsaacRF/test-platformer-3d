@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://jqvufylajied"]
+[gd_scene load_steps=10 format=3 uid="uid://jqvufylajied"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_3f3x6"]
 [ext_resource type="ArrayMesh" uid="uid://gjuyfsvj5gs0" path="res://Assets/Models/characterVampire.obj" id="1_pv2g0"]
 [ext_resource type="AudioStream" uid="uid://cesq424vl0eem" path="res://Sound/SFX/Death.ogg" id="3_wwhho"]
 [ext_resource type="AudioStream" uid="uid://3vhqx2ccx8be" path="res://Sound/SFX/Jump.mp3" id="4_lg4ii"]
+[ext_resource type="AudioStream" uid="uid://c3re1fu8vpm6g" path="res://Sound/SFX/Hit.wav" id="5_w5e5t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q3auj"]
 radius = 0.3
@@ -75,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600632, 0)
 shape = SubResource("CapsuleShape3D_q3auj")
 
 [node name="CameraFollow" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.960513, 0.278237, 0, -0.278237, 0.960513, 0, 1.26213, 2.06253)
+transform = Transform3D(1, 0, 0, 0, 0.905028, 0.425353, 0, -0.425353, 0.905028, 0, 1.49646, 2.12182)
 remote_path = NodePath("../../Camera")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -89,3 +90,6 @@ stream = ExtResource("3_wwhho")
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_lg4ii")
 volume_db = -12.0
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_w5e5t")
