@@ -6,6 +6,7 @@
 [node name="Main" type="Node3D"]
 
 [node name="PlatformLarge" parent="." instance=ExtResource("1_2i5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_p81fo")]
 
