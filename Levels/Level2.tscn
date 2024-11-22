@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckrp8cjkdhyy5"]
+
+[ext_resource type="PackedScene" uid="uid://1nppty5rw424" path="res://UI/UI.tscn" id="1_yjqdw"]
+[ext_resource type="PackedScene" uid="uid://jqvufylajied" path="res://Player/Player.tscn" id="2_t2woy"]
+[ext_resource type="PackedScene" uid="uid://d2do5kemgc8ee" path="res://Platforms/PlatformLarge.tscn" id="3_8hlmj"]
+[ext_resource type="PackedScene" uid="uid://bssf3miyaxa02" path="res://Hazards/DeathArea.tscn" id="4_rh8nk"]
+[ext_resource type="PackedScene" uid="uid://dw6c32x4ilo81" path="res://Collectables/CoinGold.tscn" id="7_cj20y"]
+[ext_resource type="PackedScene" uid="uid://c1blaua4x766" path="res://Zones/Goal.tscn" id="8_4dmo2"]
+
+[sub_resource type="Environment" id="Environment_v6yjo"]
+background_mode = 1
+background_color = Color(0.180238, 0.466854, 0.687979, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayh7b"]
+size = Vector3(43, 4, 41)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v6yjo")
+
+[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_yjqdw")]
+player = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.35754, 0.638029, 0, -0.638029, 1.35754, 0, 2.24469, 3.18273)
+
+[node name="Player" parent="." instance=ExtResource("2_t2woy")]
+
+[node name="PlatformLarge" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="PlatformLarge2" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99602, -1, 0)
+
+[node name="PlatformLarge6" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99216, -1, 0)
+
+[node name="PlatformLarge7" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 2)
+
+[node name="PlatformLarge12" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
+
+[node name="PlatformLarge8" parent="." instance=ExtResource("3_8hlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.444334, 0.739847, 0.505167, -0.196032, -0.630521, 0.751009, 0.87415, 0.23467, 0.425195, 0.0528512, 5.63754, 0)
+shadow_enabled = true
+
+[node name="Void" parent="." instance=ExtResource("4_rh8nk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02034, 0, 0.151889)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Void"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5.00685, -3)
+shape = SubResource("BoxShape3D_ayh7b")
+
+[node name="CoinGold" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 0.309562)
+
+[node name="CoinGold2" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 1.30956)
+
+[node name="CoinGold3" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 2.30956)
+
+[node name="CoinGold4" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 2.30956)
+
+[node name="CoinGold5" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 1.30956)
+
+[node name="CoinGold6" parent="." instance=ExtResource("7_cj20y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 0.309562)
+
+[node name="Goal" parent="." instance=ExtResource("8_4dmo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+next_level = "res://Levels/Level1.tscn"
