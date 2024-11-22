@@ -18,6 +18,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
+	if Input.is_action_pressed("jump") && is_on_floor():
+		velocity.y = jump_force
+	
 	if input.length() > 0:
 		velocity.x = move_toward(velocity.x, dir.x * move_speed, acceleration)
 		velocity.z = move_toward(velocity.z, dir.z * move_speed, acceleration)
