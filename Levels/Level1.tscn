@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfvna3ixit663"]
+[gd_scene load_steps=8 format=3 uid="uid://dfvna3ixit663"]
 
 [ext_resource type="PackedScene" uid="uid://d2do5kemgc8ee" path="res://Platforms/PlatformLarge.tscn" id="1_2i5le"]
 [ext_resource type="PackedScene" uid="uid://jqvufylajied" path="res://Player/Player.tscn" id="2_p81fo"]
 [ext_resource type="PackedScene" uid="uid://bssf3miyaxa02" path="res://Hazards/DeathArea.tscn" id="3_ni36n"]
 [ext_resource type="PackedScene" uid="uid://cswrxwyowmy54" path="res://Hazards/Spikes.tscn" id="4_e8nsp"]
 [ext_resource type="PackedScene" uid="uid://cl6butnbnrvwm" path="res://Enemies/SpikeBall.tscn" id="5_0bmue"]
+[ext_resource type="PackedScene" uid="uid://dw6c32x4ilo81" path="res://Collectables/CoinGold.tscn" id="6_vi4e5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ayh7b"]
 size = Vector3(43, 4, 41)
@@ -77,3 +78,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64081, 1.18849, -1.55535)
 
 [node name="SpikeBall2" parent="." instance=ExtResource("5_0bmue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46895, 2.18863, -1.5645)
+
+[node name="CoinGold" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 0.309562)
+
+[node name="CoinGold2" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 1.30956)
+
+[node name="CoinGold3" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26339, 0.763702, 2.30956)
+
+[node name="CoinGold4" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 2.30956)
+
+[node name="CoinGold5" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 1.30956)
+
+[node name="CoinGold6" parent="." instance=ExtResource("6_vi4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26339, 0.763702, 0.309562)

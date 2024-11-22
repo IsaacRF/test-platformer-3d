@@ -51,6 +51,15 @@ func _physics_process(delta):
 		facing_angle = Vector2(input.y, input.x).angle()
 		model.rotation.y = lerp_angle(model.rotation.y, facing_angle, rotation_speed)
 		
+func add_score(amount: int):
+	score += amount
+	score_updated.emit(score)
+	
+func add_life(amount: float):
+	life += amount
+	if life > max_life: life = max_life
+	life_updated.emit(life)
+
 func damage(hit_points : float = 1.0, knockback_force : float = 10.0):
 	life -= hit_points
 	life_updated.emit(life)
