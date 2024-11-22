@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://jqvufylajied"]
+[gd_scene load_steps=9 format=3 uid="uid://jqvufylajied"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_3f3x6"]
 [ext_resource type="ArrayMesh" uid="uid://gjuyfsvj5gs0" path="res://Assets/Models/characterVampire.obj" id="1_pv2g0"]
 [ext_resource type="AudioStream" uid="uid://cesq424vl0eem" path="res://Sound/SFX/Death.ogg" id="3_wwhho"]
+[ext_resource type="AudioStream" uid="uid://3vhqx2ccx8be" path="res://Sound/SFX/Jump.mp3" id="4_lg4ii"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q3auj"]
 radius = 0.3
@@ -84,3 +85,7 @@ libraries = {
 
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wwhho")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lg4ii")
+volume_db = -12.0

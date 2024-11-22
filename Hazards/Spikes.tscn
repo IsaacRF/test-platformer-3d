@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cswrxwyowmy54"]
+
+[ext_resource type="ArrayMesh" uid="uid://ckhit4w6oius4" path="res://Assets/Models/spikesLarge.obj" id="1_v172m"]
+[ext_resource type="PackedScene" uid="uid://bssf3miyaxa02" path="res://Hazards/DeathArea.tscn" id="2_th5k0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdtju"]
+size = Vector3(0.5354, 0.217773, 0.496948)
+
+[node name="Spikes" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10853, 0.005005, -3.92515)
+mesh = ExtResource("1_v172m")
+
+[node name="DeathArea2" parent="." instance=ExtResource("2_th5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124396, 0, -0.13152)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11731, 0.108887, 0.134216)
+shape = SubResource("BoxShape3D_tdtju")

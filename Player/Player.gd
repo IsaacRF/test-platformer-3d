@@ -9,8 +9,11 @@ var gravity : float = 20.0
 
 var facing_angle : float
 
+var is_dead : bool = false
+
 @onready var model = $Model
 @onready var death_sfx = $DeathSFX
+@onready var jump_sfx = $JumpSFX
 @onready var animation_player = $AnimationPlayer
 @onready var camera_follow = $CameraFollow
 @onready var collision_shape_3d = $CollisionShape3D
@@ -23,6 +26,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	if Input.is_action_pressed("jump") && is_on_floor():
+		jump_sfx.play()
 		velocity.y = jump_force
 	
 	if input.length() > 0:
@@ -39,6 +43,7 @@ func _physics_process(delta):
 		model.rotation.y = lerp_angle(model.rotation.y, facing_angle, rotation_speed)
 		
 func game_over():
+	is_dead = true
 	collision_shape_3d.set_deferred("disabled", true)
 	animation_player.play("Death")
 	death_sfx.play()
