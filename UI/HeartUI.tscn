@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://df1kejv60ha58"]
+
+[ext_resource type="Script" path="res://UI/HeartUI.gd" id="1_55ohd"]
+[ext_resource type="Texture2D" uid="uid://dmddsdh18imdy" path="res://Assets/Sprites/tile_1004-sheet.png" id="2_jxe4e"]
+
+[node name="HeartUI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(46, 46)
+offset_right = 46.0
+offset_bottom = 46.0
+script = ExtResource("1_55ohd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(23, 23)
+scale = Vector2(2.55556, 2.55556)
+texture = ExtResource("2_jxe4e")
+hframes = 5

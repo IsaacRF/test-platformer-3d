@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 signal score_updated(score)
 signal life_updated(life)
@@ -16,7 +17,7 @@ var is_dead : bool = false
 
 var score : int
 @export var max_life : int = 3
-@export var life : float = max_life
+@export var life : float = 3
 
 @onready var model = $Model
 @onready var death_sfx = $DeathSFX
